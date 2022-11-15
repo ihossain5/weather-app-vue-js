@@ -1,7 +1,7 @@
 <template>
     <div class="flex flex-col flex-1 items-center">
       <!-- Banner -->
-      <div
+      <!-- <div
         v-if="route.query.preview"
         class="text-white p-4 bg-weather-secondary w-full text-center"
       >
@@ -9,7 +9,7 @@
           You are currently previewing this city, click the "+"
           icon to start tracking this city.
         </p>
-      </div>
+      </div> -->
       <!-- Weather Overview -->
       <div class="flex flex-col items-center text-white py-12">
         <h1 class="text-4xl mb-2">{{ route.params.city }}</h1>
