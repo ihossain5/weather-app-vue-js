@@ -19,8 +19,8 @@
       </ul>
     </div>
   </main>
-  <Suspense>
-    <AsyncCityView :lat="lat" :lng="lng" v-if="location"></AsyncCityView>
+  <Suspense v-if="location">
+    <AsyncCityView :lat="lat" :lng="lng"></AsyncCityView>
     <template #fallback>
       <CityViewSkeleton></CityViewSkeleton>
     </template>

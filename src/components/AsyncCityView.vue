@@ -158,4 +158,5 @@
     }
   };
   const weatherData = await getWeatherData();
+
   </script>
