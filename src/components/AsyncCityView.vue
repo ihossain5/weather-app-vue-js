@@ -12,7 +12,7 @@
       </div> -->
       <!-- Weather Overview -->
       <div class="flex flex-col items-center text-white py-12">
-        <h1 class="text-4xl mb-2">{{ route.params.city }}</h1>
+        <h1 class="text-4xl mb-2">{{ route.params.city ?? '' }}</h1>
         <p class="text-sm mb-12">
           {{
             new Date(weatherData.currentTime).toLocaleDateString(
@@ -129,12 +129,14 @@
   <script setup>
   import axios from "axios";
   import { useRoute } from "vue-router";
-  
+
+  const props = defineProps(['lat','lng'])
+
   const route = useRoute();
   const getWeatherData = async () => {
     try {
       const weatherData = await axios.get(
-        `https://api.openweathermap.org/data/2.5/onecall?lat=${route.query.lat}&lon=${route.query.lng}&exclude={part}&appid=7efa332cf48aeb9d2d391a51027f1a71&units=imperial`
+        `https://api.openweathermap.org/data/2.5/onecall?lat=${route.query.lat ?? props.lat}&lon=${route.query.lng ?? props.lng}&exclude={part}&appid=7efa332cf48aeb9d2d391a51027f1a71&units=imperial`
       );
   
       // cal current date & time
